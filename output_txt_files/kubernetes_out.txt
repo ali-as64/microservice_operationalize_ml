@@ -1,0 +1,44 @@
+ kubectl get pod
+NAME        READY   STATUS    RESTARTS   AGE
+microserv   1/1     Running   0          44m
+(.devops)
+
+minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+./run_kubernetes.sh
+Error from server (AlreadyExists): pods "microserv" already exists
+NAME       STATUS   ROLES                  AGE   VERSION
+minikube   Ready    control-plane,master   69m   v1.23.3
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+Handling connection for 8000
+
+
+
+./make_prediction.sh
+Port: 8000
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   260  100    48  100   212      4     18  0:00:12  0:00:11  0:00:01    11{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+./make_prediction.sh
+Port: 8000
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   260  100    48  100   212    214    946 --:--:-- --:--:-- --:--:--  1165{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
